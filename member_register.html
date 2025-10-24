@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Registration - FitZone Fitness Center</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+        }
+
+        .container {
+            max-width: 500px;
+            width: 90%;
+            padding: 40px 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transition: box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .container:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+            outline: none;
+            background-color: #eaf2fb;
+        }
+
+        /* Button styling */
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button[type="submit"] {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: #ffffff;
+        }
+
+        button[type="submit"]:hover {
+            background: linear-gradient(135deg, #2980b9, #1c669c);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        button[onclick="location.href='index.html'"] {
+            background-color: #7f8c8d;
+            color: #ffffff;
+            margin-top: 15px;
+        }
+
+        button[onclick="location.href='index.html'"]:hover {
+            background-color: #5d6d6f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Adding animated underline on hover for labels */
+        label::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        label:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive design */
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Membership Registration</h2>
+        <form action="member_register.php" method="POST">
+            <div class="form-group">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phonenumber">Phone Number:</label>
+                <input type="text" id="phonenumber" name="phonenumber" required>
+            </div>
+            <div class="form-group">
+                <label for="membershipplan">Membership Plan:</label>
+                <select id="membershipplan" name="membershipplan" required>
+                    <option value="Basic Plan">Basic Plan</option>
+                    <option value="Premium Plan">Premium Plan</option>
+                    <option value="Family Plan">Family Plan</option>
+                </select>
+            </div>
+            <button type="submit">Register</button>
+            <button type="button" onclick="location.href='index.html'">Back to Home</button>
+        </form>
+    </div>
+</body>
+</html>

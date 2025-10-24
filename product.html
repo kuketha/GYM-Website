@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT</title>
+    <style>
+        /* Reset and basic styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Main container for items */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* Styles for each item in vertical layout */
+        .vertical .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 200px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Styles for each item in horizontal layout */
+        .horizontal .item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+            width: 100%;
+            max-width: 600px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Image styling */
+        .item img {
+            width: 165px;
+            height: 165px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        /* Heading styling */
+        .item h3 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        /* Hover effect for items */
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hover effect for images */
+        .item:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1> Our Quality Equipment</h1>
+
+    <!-- Choose container class: vertical or horizontal -->
+    <div class="container vertical">
+        <div class="item">
+            <img src="p1.jpg" alt="ARM CURL">
+            <h3>ARM CURL</h3>
+        </div>
+
+        <div class="item">
+            <img src="P2.jpg" alt="Leg Press">
+            <h3>Leg Press</h3>
+        </div>
+
+        <div class="item">
+            <img src="P3.jpg" alt="Shoulder Press">
+            <h3>Shoulder Press</h3>
+        </div>
+
+        <div class="item">
+            <img src="p4.jpg" alt="Treadmill">
+            <h3>Treadmill</h3>
+        </div>
+
+        <div class="item">
+            <img src="p5.jpg" alt="CHEST PRESS">
+            <h3>CHEST PRESS</h3>
+        </div>
+
+        <div class="item">
+            <img src="p6.jpg" alt="4 STATION GYM">
+            <h3>4 STATION GYM</h3>
+        </div>
+
+        <div class="item">
+            <img src="p7.jpg" alt="Smith Machine">
+            <h3>Smith Machine</h3>
+        </div>
+
+        <div class="item">
+            <img src="p8.jpg" alt="Exercise Bicycle Machine">
+            <h3>Exercise Bicycle Machine</h3>
+        </div>
+        <a href="#" class="join-us-btn-wrapper">
+            <a href="index.html" class="btn">
+      <button class="btn join-us-btn">Back</button>
+      </a>
+    </div>
+
+</body>
+</html>

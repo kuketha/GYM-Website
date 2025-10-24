@@ -1,0 +1,310 @@
+-- phpMyAdmin SQL Dump
+-- version 2.10.1
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Generation Time: Nov 13, 2024 at 10:42 AM
+-- Server version: 5.0.37
+-- PHP Version: 5.2.2
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Database: `gym`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `adminlog`
+-- 
+
+CREATE TABLE `adminlog` (
+  `id` tinyint(4) NOT NULL auto_increment,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `adminlog`
+-- 
+
+INSERT INTO `adminlog` (`id`, `username`, `password`) VALUES 
+(1, 'admin', '345');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `blogs`
+-- 
+
+CREATE TABLE `blogs` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(100) NOT NULL,
+  `content` text NOT NULL,
+  `category` enum('Workout Routines','Healthy Recipes and Meal Plans','Success Stories') NOT NULL,
+  `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Dumping data for table `blogs`
+-- 
+
+INSERT INTO `blogs` (`id`, `title`, `content`, `category`, `created_at`) VALUES 
+(1, '10 Best Cardio Workouts', 'Explore a variety of cardio exercises to boost your stamina and burn calories.', 'Workout Routines', '2024-11-04 02:03:47'),
+(2, 'Healthy Breakfast Ideas', 'Start your day with these nutritious breakfast recipes.', 'Healthy Recipes and Meal Plans', '2024-11-04 02:03:47'),
+(3, 'Jane''s Transformation Story', 'Read about Jane''s incredible journey to health and fitness.', 'Success Stories', '2024-11-04 02:03:47');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `classes`
+-- 
+
+CREATE TABLE `classes` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `classdate` date NOT NULL,
+  `classtime` time NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+
+-- 
+-- Dumping data for table `classes`
+-- 
+
+INSERT INTO `classes` (`id`, `name`, `description`, `classdate`, `classtime`) VALUES 
+(26, 'boxing', 'body build', '2024-11-15', '23:35:00'),
+(29, 'yoga', 'healthy life', '2024-11-13', '18:12:00'),
+(30, 'Boxing', 'High-intensity boxing class focusing on technique and fitness', '2024-11-15', '10:00:00'),
+(31, 'Yoga', 'Calming yoga session to improve flexibility and mindfulness', '2024-11-16', '08:30:00'),
+(32, 'Cardio', 'Heart-pumping cardio workout to improve endurance and strength', '2024-11-17', '09:00:00'),
+(33, 'Strength Training', 'Strength-focused workout targeting major muscle groups', '2024-11-18', '11:00:00'),
+(34, 'Pilates', 'Core-focused Pilates session to enhance stability and control', '2024-11-19', '07:30:00'),
+(35, 'HIIT', 'High-Intensity Interval Training for fat-burning and endurance', '2024-11-20', '12:00:00'),
+(36, 'Spin Class', 'Intense cycling class to boost cardiovascular fitness', '2024-11-21', '06:30:00'),
+(37, 'Zumba', 'Dance-based workout for cardio and fun with upbeat music', '2024-11-22', '05:00:00');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `cuo_log`
+-- 
+
+CREATE TABLE `cuo_log` (
+  `id` int(11) NOT NULL auto_increment,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `cuo_log`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `membership_registration`
+-- 
+
+CREATE TABLE `membership_registration` (
+  `id` int(11) NOT NULL auto_increment,
+  `fullname` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phonenumber` varchar(15) NOT NULL,
+  `membershipplan` enum('Basic Plan','Premium Plan','Family Plan') NOT NULL,
+  `expiration_date` date NOT NULL,
+  `status` enum('Active','Inactive') NOT NULL default 'Active',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
+
+-- 
+-- Dumping data for table `membership_registration`
+-- 
+
+INSERT INTO `membership_registration` (`id`, `fullname`, `email`, `phonenumber`, `membershipplan`, `expiration_date`, `status`) VALUES 
+(23, 'Nisetha', 'nisetha30@gmail.com', '07865444', 'Family Plan', '2024-11-13', 'Active'),
+(24, 'John Doe', 'johndoe@example.com', '1234567890', 'Basic Plan', '2024-12-31', 'Active'),
+(25, 'Jane Smith', 'janesmith@example.com', '0987654321', 'Premium Plan', '2024-11-30', 'Inactive'),
+(26, 'Alice Johnson', 'alicej@example.com', '2345678901', 'Family Plan', '2025-01-15', 'Active'),
+(27, 'Bob Brown', 'bobbrown@example.com', '3456789012', 'Basic Plan', '2024-10-10', 'Inactive'),
+(28, 'Charlie Green', 'charliegreen@example.com', '4567890123', 'Premium Plan', '2025-02-28', 'Active'),
+(29, 'Diana White', 'dianaw@example.com', '5678901234', 'Family Plan', '2024-11-20', 'Inactive'),
+(30, 'Edward Black', 'edblack@example.com', '6789012345', 'Basic Plan', '2025-01-05', 'Active'),
+(31, 'Fiona Blue', 'fionab@example.com', '7890123456', 'Premium Plan', '2024-12-15', 'Active'),
+(32, 'George Yellow', 'georgey@example.com', '8901234567', 'Family Plan', '2025-03-01', 'Inactive');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `personal_training`
+-- 
+
+CREATE TABLE `personal_training` (
+  `id` int(11) NOT NULL auto_increment,
+  `customer` varchar(50) default NULL,
+  `trainer` varchar(50) default NULL,
+  `session_date` date default NULL,
+  `session_time` time default NULL,
+  `duration` int(11) default NULL,
+  `session_type` varchar(50) default NULL,
+  `notes` text,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+-- 
+-- Dumping data for table `personal_training`
+-- 
+
+INSERT INTO `personal_training` (`id`, `customer`, `trainer`, `session_date`, `session_time`, `duration`, `session_type`, `notes`) VALUES 
+(10, 'kuketha', 'Tom', '2024-11-18', '08:45:00', 45, 'Boxing', 'GOOD TRANING'),
+(11, 'Thanu sri', 'saam', '2024-11-13', '19:06:00', 45, 'yoga', 'GOOD HEALTH'),
+(12, 'John Doe', 'Mia Thompson', '2024-11-15', '10:00:00', 60, 'Cardio', 'Focus on endurance'),
+(13, 'Jane Smith', 'Ryan Patel', '2024-11-16', '11:00:00', 45, 'Strength Training', 'Increase weights gradually'),
+(14, 'Alice Johnson', 'Tom Anderson', '2024-11-17', '09:30:00', 30, 'Yoga', 'Work on flexibility'),
+(15, 'Bob Brown', 'Mia Thompson', '2024-11-18', '08:00:00', 50, 'HIIT', 'Short intense intervals'),
+(16, 'Charlie Green', 'Mia Thompson', '2024-11-19', '14:00:00', 40, 'Pilates', 'Focus on core strength'),
+(17, 'Diana White', 'Ryan Patel', '2024-11-20', '13:00:00', 55, 'Spin Class', 'Increase resistance'),
+(18, 'Edward Black', 'Mia Thompson', '2024-11-21', '12:30:00', 60, 'Zumba', 'Maintain high energy'),
+(19, 'Fiona Blue', 'Mia Thompson', '2024-11-22', '07:45:00', 35, 'Strength Training', 'Emphasis on form'),
+(20, 'George Yellow', 'Ryan Patel', '2024-11-23', '15:30:00', 25, 'Cardio', 'Build stamina gradually'),
+(21, 'Hannah Grey', 'Mia Thompson', '2024-11-24', '16:00:00', 50, 'Yoga', 'Enhance breathing techniques');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `queries`
+-- 
+
+CREATE TABLE `queries` (
+  `id` int(11) NOT NULL auto_increment,
+  `customer_id` int(11) default NULL,
+  `name` varchar(100) default NULL,
+  `email` varchar(100) default NULL,
+  `phone` varchar(15) default NULL,
+  `message` text,
+  `reply1` text,
+  `reply2` text,
+  `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `replied_at` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `inquiry_type` varchar(50) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+-- 
+-- Dumping data for table `queries`
+-- 
+
+INSERT INTO `queries` (`id`, `customer_id`, `name`, `email`, `phone`, `message`, `reply1`, `reply2`, `created_at`, `replied_at`, `inquiry_type`) VALUES 
+(8, 19, 'kuketha', 'kuke@gmail.com', '0736363555', 'Each person membership longest year', NULL, NULL, '2024-11-12 18:30:02', '0000-00-00 00:00:00', 'membership'),
+(9, 19, 'Nisetha', 'nisetha30@gmail.com', '0771234561', 'when you start this gym ', NULL, NULL, '2024-11-12 18:32:08', '0000-00-00 00:00:00', 'general'),
+(10, 19, 'Sampaki Sivantham', 'sampa@gmail.com', '0736363555', 'can you provide more service', NULL, NULL, '2024-11-12 18:33:26', '0000-00-00 00:00:00', 'services');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `reg`
+-- 
+
+CREATE TABLE `reg` (
+  `id` int(6) unsigned NOT NULL auto_increment,
+  `name` varchar(100) NOT NULL,
+  `age` int(3) NOT NULL,
+  `email` varchar(50) default NULL,
+  `phone` varchar(15) default NULL,
+  `address` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
+
+-- 
+-- Dumping data for table `reg`
+-- 
+
+INSERT INTO `reg` (`id`, `name`, `age`, `email`, `phone`, `address`) VALUES 
+(19, 'kuketha niththiyananthan', 25, 'kuke@gmail.com', '0771751428', 'puloly'),
+(20, 'sampaki sivanantham', 26, 'sampaki123@gmail.com', '0736363555', 'eluthumalluval'),
+(23, 'Thanu sri', 26, 'tahanu@gmail.com', '0736363555', 'pointpedro'),
+(25, 'Sampaki Sivantham', 26, 'sampa@gmail.com', '078654433', 'eluthumalluval'),
+(26, 'Sivajitha', 24, 'siva@gmail.com', '078954423', 'Neerveli'),
+(27, 'Kamsana', 23, 'sana@gmail.com', '076787543', 'Vempadi Road'),
+(28, 'Dilaxika', 23, 'lakxi@gmail.com', '0754433455', 'Nallur'),
+(29, 'Jathusana', 24, 'jathu@gmail.com', '0768954443', 'Sakavashsheri');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `staff`
+-- 
+
+CREATE TABLE `staff` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(15) default NULL,
+  `type` enum('yoga','cardio','boxing') NOT NULL,
+  `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+-- 
+-- Dumping data for table `staff`
+-- 
+
+INSERT INTO `staff` (`id`, `name`, `email`, `phone`, `type`, `created_at`) VALUES 
+(2, 'Bob Smith', 'bob@cardio.com', '555-5678', 'cardio', '2024-11-03 17:35:34'),
+(3, 'Charlie Brown', 'charlie@boxing.com', '555-9012', 'boxing', '2024-11-03 17:35:34'),
+(4, 'Diana Lopez', 'diana@yoga.com', '555-3456', 'yoga', '2024-11-03 17:35:34'),
+(5, 'Evan Lee', 'evan@cardio.com', '555-7890', 'cardio', '2024-11-03 17:35:34'),
+(6, 'Fiona White', 'fiona@boxing.com', '555-4321', 'boxing', '2024-11-03 17:35:34'),
+(7, 'sam', 'sam@gmail.com', '0736363555', 'cardio', '2024-11-11 15:04:21');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `stafflog`
+-- 
+
+CREATE TABLE `stafflog` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `stafflog`
+-- 
+
+INSERT INTO `stafflog` (`id`, `username`, `password`) VALUES 
+(1, 'thanu', '555');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `users`
+-- 
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(15) default NULL,
+  `created_at` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Dumping data for table `users`
+-- 
+
+INSERT INTO `users` (`id`, `name`, `email`, `phone`, `created_at`) VALUES 
+(2, 'kuketha', 'admin@library.com', '6577676767', '2024-11-03 15:21:07'),
+(3, 'Nisetha', 'sana@gmail.com', '4567764', '2024-11-04 02:21:43');

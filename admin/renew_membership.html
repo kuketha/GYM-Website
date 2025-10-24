@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renew Membership - FitZone Fitness Center</title>
+    <link rel="stylesheet" href="style.css"> <!-- Assuming you have a style.css for styles -->
+</head>
+<body>
+    <div class="container">
+        <h2>Renew Membership</h2>
+        <form action="process_payment.php" method="POST">
+            <div class="form-group">
+                <label for="member_id">Member ID:</label>
+                <input type="number" id="member_id" name="member_id" required>
+            </div>
+            <div class="form-group">
+                <label for="plan">Membership Plan:</label>
+                <select id="plan" name="plan" required>
+                    <option value="Basic Plan">Basic Plan</option>
+                    <option value="Premium Plan">Premium Plan</option>
+                    <option value="Family Plan">Family Plan</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-renew">Renew Membership</button>
+        </form>
+    </div>
+</body>
+</html>

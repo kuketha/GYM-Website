@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Panel - FitZone Fitness Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Left column (Dashboard) */
+        .sidebar {
+            width: 30%;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .sidebar h2 {
+            color: #ecf0f1;
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin-top: 20px;
+        }
+        .button-container button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+        .button-container button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Right column (View Page) */
+        .view-area {
+            width: 70%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        .view-area h3 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar (Dashboard) -->
+        <div class="sidebar">
+            <h2>Dashboard</h2>
+            <div class="button-container">
+
+                <button onclick="loadContent('manage_classes.php')">Class Management</button>
+                <button onclick="loadContent('query_view.php')">Query View and respon</button>
+                <button onclick="loadContent('customer_details.php')">View Customer Details</button>
+                <button onclick="loadContent('personal_training_request.php')">View Personal Rraining Request</button>
+                <button onclick="location.href='staff_logout.php'">Logout</button>
+            </div>
+        </div>
+
+        <!-- Right View Area -->
+        <div class="view-area" id="viewArea">
+            <h3>Welcome to the Staff Panel</h3>
+            <p>Select an option from the dashboard to view or manage content.</p>
+        </div>
+    </div>
+
+    <script>
+        function loadContent(page) {
+            // Load the content of the selected page into the right view area
+            fetch(page)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("viewArea").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Error loading content:", error);
+                });
+        }
+    </script>
+</body>
+</html>
